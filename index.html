@@ -81,15 +81,26 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/10/17/wsl-ubuntu-miniconda-vscode/">wsl配置(ubuntu)+vscode</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="WSL配置（Ubuntu-miniconda-vscode）"><a href="#WSL配置（Ubuntu-miniconda-vscode）" class="headerlink" title="WSL配置（Ubuntu+miniconda+vscode）"></a>WSL配置（Ubuntu+miniconda+vscode）</h1><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h3 id="下载wsl"><a href="#下载wsl" class="headerlink" title="下载wsl"></a>下载wsl</h3><p>在windows powershell中输入</p>
+        <h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h3 id="下载wsl"><a href="#下载wsl" class="headerlink" title="下载wsl"></a>下载wsl</h3><p>在windows powershell中输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --install -d Ubuntu</span><br></pre></td></tr></table></figure>
 
 
 
 <h3 id="配置个人信息"><a href="#配置个人信息" class="headerlink" title="配置个人信息"></a>配置个人信息</h3><p>输入个人的用户名和密码，并进入wsl界面（可能需要重启，然后点击windows左下“开始“”图表找到ubuntu图标并点击就可以打开wsl）</p>
-<h3 id=""><a href="#" class="headerlink" title=""></a><img src="/2021/10/17/wsl-ubuntu-miniconda-vscode/image-20211014125653736.png" alt="image-20211014125653736"></h3><h3 id="安装python和vscode"><a href="#安装python和vscode" class="headerlink" title="安装python和vscode"></a>安装python和vscode</h3><p>python 这里选择直接安装miniconda,在wsl 终端中输入</p>
+<p><img src="/2021/10/17/wsl-ubuntu-miniconda-vscode/image-20211014125653736.png"></p>
+<h3 id="安装python和vscode"><a href="#安装python和vscode" class="headerlink" title="安装python和vscode"></a>安装python和vscode</h3><p>python 这里选择直接安装miniconda,在wsl 终端中输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</span><br><span class="line">sudo chmod 777 Miniconda3-latest-Linux-x86_64.sh </span><br><span class="line">./Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
 
 <p>在 ~/.bashrc文件里(如果没有就创建一个)输入</p>
@@ -106,11 +117,11 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code .</span><br></pre></td></tr></table></figure>
 
 <p>以后要打开vscode也是这个命令，打开vscode如图：</p>
-<p><img src="/2021/10/17/wsl-ubuntu-miniconda-vscode/image-20211014133451923.png" alt="image-20211014133451923"></p>
+<p><img src="/2021/10/17/wsl-ubuntu-miniconda-vscode/image-20211014133451923.png"></p>
 <p>然后可以直接在vscode中安装python extention, jupyter等软件，以jupyter为例</p>
-<p><img src="/2021/10/17/wsl-ubuntu-miniconda-vscode/image-20211014133921712.png" alt="image-20211014133921712"></p>
+<p><img src="/2021/10/17/wsl-ubuntu-miniconda-vscode/image-20211014133921712.png"></p>
 <p>可以看到右上角有个选择内核点击</p>
-<p><img src="/2021/10/17/wsl-ubuntu-miniconda-vscode/image-20211014133953719.png" alt="image-20211014133953719"></p>
+<p><img src="/2021/10/17/wsl-ubuntu-miniconda-vscode/image-20211014133953719.png"></p>
 <ul>
 <li>可以看到我之前创建的虚拟环境都在这里（如果你创建完一个虚拟环境，立即打开vscode可能还看不到这个虚拟环境，vscode需要一段时间才能反应过来）</li>
 </ul>
@@ -118,11 +129,11 @@
 <li><p>在 <strong>下载wsl</strong>的时一定要下载在驱动盘</p>
 <ul>
 <li><p>在windows系统设置/存储设置中 点击“更新内容的保存位置“</p>
-<h6 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="image-20211014134547124.png" alt="image-20211014134547124" style="zoom:80%;" /></h6></li>
+<h6 id=""><a href="#" class="headerlink" title=""></a><img src="image-20211014134547124.png" alt="" style="zoom:80%;" /></h6></li>
 <li><p>更改下载位置到驱动盘</p>
 </li>
 </ul>
-<p><img src="/2021/10/17/wsl-ubuntu-miniconda-vscode/image-20211014134702093.png" alt="image-20211014134702093"></p>
+<p><img src="/2021/10/17/wsl-ubuntu-miniconda-vscode/image-20211014134702093.png"></p>
 <p>注意这里的新的应用应该指的是你在windows商店下载的应用，而不是说你随便在网上下载个东西就会在C盘</p>
 </li>
 <li><p>下载完启动时出现错误提示 <strong>WslRegisterDistribution failed with error: 0x80071772</strong></p>
@@ -133,10 +144,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/17/wsl-ubuntu-miniconda-vscode/" data-id="ckuuyev0o0000mgukbm0d5r9l" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/10/17/wsl-ubuntu-miniconda-vscode/" data-id="ckuuyev0o0000mgukbm0d5r9l" data-title="wsl配置(ubuntu)+vscode" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wsl/" rel="tag">wsl</a></li></ul>
+
     </footer>
   </div>
   
@@ -186,6 +199,8 @@
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wsl/" rel="tag">wsl</a></li></ul>
+
     </footer>
   </div>
   
@@ -308,7 +323,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
     </div>
   </div>
 
@@ -318,7 +333,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a>
+      <a href="/tags/wsl/" style="font-size: 20px;">wsl</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a>
     </div>
   </div>
 
@@ -340,7 +355,7 @@
       <ul>
         
           <li>
-            <a href="/2021/10/17/wsl-ubuntu-miniconda-vscode/">(no title)</a>
+            <a href="/2021/10/17/wsl-ubuntu-miniconda-vscode/">wsl配置(ubuntu)+vscode</a>
           </li>
         
           <li>
