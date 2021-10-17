@@ -71,6 +71,143 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-wsl1+图像化界面+pycharm" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/10/17/wsl1+%E5%9B%BE%E5%83%8F%E5%8C%96%E7%95%8C%E9%9D%A2+pycharm/" class="article-date">
+  <time class="dt-published" datetime="2021-10-17T06:43:17.209Z" itemprop="datePublished">2021-10-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="wsl1-图像化界面-pycharm"><a href="#wsl1-图像化界面-pycharm" class="headerlink" title="wsl1+图像化界面+pycharm"></a>wsl1+图像化界面+pycharm</h1><p>本来是想在wsl里试试看pycharm的，装好之后发现提示没有gui,所以对这网上资料配置了一下，</p>
+<p>本文大部分参考了<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34037046/article/details/90203966?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.no_search_link&amp;spm=1001.2101.3001.4242">https://blog.csdn.net/qq_34037046/article/details/90203966?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.no_search_link&amp;spm=1001.2101.3001.4242</a></p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><ol>
+<li>VcXsrv启动Xserver服务用于监听</li>
+<li>WSL启动程序后把界面数据发送给Xserver</li>
+<li>Xserver接收到数据进行绘制，于是在Win下看到图形界面窗口</li>
+</ol>
+<h2 id="下载安装并启动VcXsrv"><a href="#下载安装并启动VcXsrv" class="headerlink" title="下载安装并启动VcXsrv"></a>下载安装并启动VcXsrv</h2><p>点<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/vcxsrv/">此处</a>即可下载安装包，一路next。</p>
+<p>此时在开始菜单里找到Xlaunch,点击打开</p>
+<img src="C:\Users\zhouyihe\AppData\Roaming\Typora\typora-user-images\image-20211014200341498.png" alt="image-20211014200341498" style="zoom:70%;" />
+
+<p>一路下一步即可，以后在wsl中想使用图形界面都要打开这个</p>
+<h2 id="配置DISPLAY"><a href="#配置DISPLAY" class="headerlink" title="配置DISPLAY"></a>配置DISPLAY</h2><p><strong>注意以下配置是针对wsl1的，wsl2的配置更为复杂，请参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/Alisebeast/article/details/106680267">这篇博客</a></strong></p>
+<p>在wsl终端中输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;export DISPLAY=:0.0&quot; &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>这里可能需要重启一下wsl</p>
+<h2 id="下载pycharm"><a href="#下载pycharm" class="headerlink" title="下载pycharm"></a>下载pycharm</h2><p>通过访问 [<a target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/download/#section=linux]">https://www.jetbrains.com/pycharm/download/#section=linux]</a>  获取安装包，因为这里还没有讲到安装图形化桌面，所以其实可以先通过windows下载下来，然后找到wsl的根目录，直接把下载的安装包复制到根目录下，我这里的路径是[C:\Users\Username\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\Username]</p>
+<p>然后输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvzf pycharm-community-2021.2.2</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="运行pycharm"><a href="#运行pycharm" class="headerlink" title="运行pycharm"></a>运行pycharm</h2><p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd pycharm-community-2021.2.2/bin</span><br><span class="line">sh pycharm.sh</span><br></pre></td></tr></table></figure>
+
+<p>即可运行pycharm</p>
+<h2 id="wsl图形化桌面"><a href="#wsl图形化桌面" class="headerlink" title="wsl图形化桌面"></a>wsl图形化桌面</h2><p>其实这也是windows下的一个窗口，如果需要可以装一下(上文是针对某个应用软件需要图形化界面时的配置)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y xfce4</span><br><span class="line">sudo apt install xfce4-session <span class="comment">#忘了有没有这句了</span></span><br><span class="line">xfce4-session</span><br></pre></td></tr></table></figure>
+
+<p>如此即可打开图形化桌面了</p>
+<p><img src="C:\Users\zhouyihe\AppData\Roaming\Typora\typora-user-images\image-20211014203633489.png" alt="image-20211014203633489"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/10/17/wsl1+%E5%9B%BE%E5%83%8F%E5%8C%96%E7%95%8C%E9%9D%A2+pycharm/" data-id="ckuuv49860001ncukfz93dgxu" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-WSL配置（Ubuntu+miniconda+vscode）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/10/17/WSL%E9%85%8D%E7%BD%AE%EF%BC%88Ubuntu+miniconda+vscode%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2021-10-17T06:43:13.586Z" itemprop="datePublished">2021-10-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="WSL配置（Ubuntu-miniconda-vscode）"><a href="#WSL配置（Ubuntu-miniconda-vscode）" class="headerlink" title="WSL配置（Ubuntu+miniconda+vscode）"></a>WSL配置（Ubuntu+miniconda+vscode）</h1><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h3 id="下载wsl"><a href="#下载wsl" class="headerlink" title="下载wsl"></a>下载wsl</h3><p>在windows powershell中输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --install -d Ubuntu</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="配置个人信息"><a href="#配置个人信息" class="headerlink" title="配置个人信息"></a>配置个人信息</h3><p>输入个人的用户名和密码，并进入wsl界面（可能需要重启，然后点击windows左下“开始“”图表找到ubuntu图标并点击就可以打开wsl）</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a><img src="C:\Users\zhouyihe\AppData\Roaming\Typora\typora-user-images\image-20211014125653736.png" alt="image-20211014125653736"></h3><h3 id="安装python和vscode"><a href="#安装python和vscode" class="headerlink" title="安装python和vscode"></a>安装python和vscode</h3><p>python 这里选择直接安装miniconda,在wsl 终端中输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</span><br><span class="line">sudo chmod 777 Miniconda3-latest-Linux-x86_64.sh </span><br><span class="line">./Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+
+<p>在 ~/.bashrc文件里(如果没有就创建一个)输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/home/YOURNAME/miniconda3/bin/conda:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>然后保存，再输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>没记错的话做到这一步你的wsl命令提示符前面就会多一个(base)了</p>
+<h3 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda create -n py38 python=3.8</span><br><span class="line">conda env list #查看当前环境列表</span><br><span class="line">conda &lt;env_name&gt; activate #进入该虚拟环境</span><br><span class="line">conda deactivate #退出当前虚拟环境</span><br></pre></td></tr></table></figure>
+
+<p>之后如果进入虚拟环境后pip install 就只会把python包安装在虚拟环境中</p>
+<h3 id="下载vscode"><a href="#下载vscode" class="headerlink" title="下载vscode"></a>下载vscode</h3><p>这个很简单，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code .</span><br></pre></td></tr></table></figure>
+
+<p>以后要打开vscode也是这个命令，打开vscode如图：</p>
+<img src="C:\Users\zhouyihe\AppData\Roaming\Typora\typora-user-images\image-20211014133451923.png" alt="image-20211014133451923" style="zoom:67%;" />
+
+<p>然后可以直接在vscode中安装python extention, jupyter等软件，以jupyter为例</p>
+<p><img src="C:\Users\zhouyihe\AppData\Roaming\Typora\typora-user-images\image-20211014133921712.png" alt="image-20211014133921712"></p>
+<p>可以看到右上角有个选择内核点击</p>
+<img src="C:\Users\zhouyihe\AppData\Roaming\Typora\typora-user-images\image-20211014133953719.png" alt="image-20211014133953719" style="zoom:60%;" />
+
+<ul>
+<li>可以看到我之前创建的虚拟环境都在这里（如果你创建完一个虚拟环境，立即打开vscode可能还看不到这个虚拟环境，vscode需要一段时间才能反应过来）</li>
+</ul>
+<h2 id="可能会碰到的一些问题"><a href="#可能会碰到的一些问题" class="headerlink" title="可能会碰到的一些问题"></a>可能会碰到的一些问题</h2><ul>
+<li><p>在 <strong>下载wsl</strong>的时一定要下载在驱动盘</p>
+<ul>
+<li><p>在windows系统设置/存储设置中 点击“更新内容的保存位置“</p>
+<h6 id="“"><a href="#“" class="headerlink" title="“"></a><img src="C:\Users\zhouyihe\AppData\Roaming\Typora\typora-user-images\image-20211014134547124.png" alt="image-20211014134547124" style="zoom:50%;" />“</h6></li>
+<li><p>更改下载位置到驱动盘</p>
+</li>
+</ul>
+<img src="C:\Users\zhouyihe\AppData\Roaming\Typora\typora-user-images\image-20211014134702093.png" alt="image-20211014134702093" style="zoom:50%;" />
+
+<p>注意这里的新的应用应该指的是你在windows商店下载的应用，而不是说你随便在网上下载个东西就会在C盘</p>
+</li>
+<li><p>下载完启动时出现错误提示 <strong>WslRegisterDistribution failed with error: 0x80071772</strong></p>
+<p>这个错误应该很不常见，在网上搜了搜也没找到，后来发现是以前傻逼下载的wsl没有删除干净导致的，至于怎么才算删干净我也不是很清楚…如果实在不行可以换个版本（例如wsl –install -d debian）下载</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/10/17/WSL%E9%85%8D%E7%BD%AE%EF%BC%88Ubuntu+miniconda+vscode%EF%BC%89/" data-id="ckuuv497s0000ncukb4jwa68y" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-my-first-blog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/10/17/my-first-blog/" class="article-date">
@@ -215,6 +352,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/10/17/wsl1+%E5%9B%BE%E5%83%8F%E5%8C%96%E7%95%8C%E9%9D%A2+pycharm/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/WSL%E9%85%8D%E7%BD%AE%EF%BC%88Ubuntu+miniconda+vscode%EF%BC%89/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2021/10/17/my-first-blog/">my-first-blog</a>
