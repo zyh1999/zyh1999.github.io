@@ -81,45 +81,34 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/10/17/wsl1+%E5%9B%BE%E5%83%8F%E5%8C%96%E7%95%8C%E9%9D%A2+pycharm/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="wsl1-图像化界面-pycharm"><a href="#wsl1-图像化界面-pycharm" class="headerlink" title="wsl1+图像化界面+pycharm"></a>wsl1+图像化界面+pycharm</h1><p>本来是想在wsl里试试看pycharm的，装好之后发现提示没有gui,所以对这网上资料配置了一下，</p>
+        <p>本来是想在wsl里试试看pycharm的，装好之后发现提示没有gui,所以对这网上资料配置了一下，</p>
 <p>本文大部分参考了<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34037046/article/details/90203966?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.no_search_link&amp;spm=1001.2101.3001.4242">https://blog.csdn.net/qq_34037046/article/details/90203966?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.no_search_link&amp;spm=1001.2101.3001.4242</a></p>
 <h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><ol>
 <li>VcXsrv启动Xserver服务用于监听</li>
 <li>WSL启动程序后把界面数据发送给Xserver</li>
 <li>Xserver接收到数据进行绘制，于是在Win下看到图形界面窗口</li>
 </ol>
-<h2 id="下载安装并启动VcXsrv"><a href="#下载安装并启动VcXsrv" class="headerlink" title="下载安装并启动VcXsrv"></a>下载安装并启动VcXsrv</h2><p>点<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/vcxsrv/">此处</a>即可下载安装包，一路next。</p>
-<p>此时在开始菜单里找到Xlaunch,点击打开</p>
-<img src="C:\Users\zhouyihe\AppData\Roaming\Typora\typora-user-images\image-20211014200341498.png" alt="image-20211014200341498" style="zoom:70%;" />
-
-<p>一路下一步即可，以后在wsl中想使用图形界面都要打开这个</p>
-<h2 id="配置DISPLAY"><a href="#配置DISPLAY" class="headerlink" title="配置DISPLAY"></a>配置DISPLAY</h2><p><strong>注意以下配置是针对wsl1的，wsl2的配置更为复杂，请参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/Alisebeast/article/details/106680267">这篇博客</a></strong></p>
-<p>在wsl终端中输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;export DISPLAY=:0.0&quot; &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>这里可能需要重启一下wsl</p>
-<h2 id="下载pycharm"><a href="#下载pycharm" class="headerlink" title="下载pycharm"></a>下载pycharm</h2><p>通过访问 [<a target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/download/#section=linux]">https://www.jetbrains.com/pycharm/download/#section=linux]</a>  获取安装包，因为这里还没有讲到安装图形化桌面，所以其实可以先通过windows下载下来，然后找到wsl的根目录，直接把下载的安装包复制到根目录下，我这里的路径是[C:\Users\Username\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\Username]</p>
-<p>然后输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvzf pycharm-community-2021.2.2</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="运行pycharm"><a href="#运行pycharm" class="headerlink" title="运行pycharm"></a>运行pycharm</h2><p>输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd pycharm-community-2021.2.2/bin</span><br><span class="line">sh pycharm.sh</span><br></pre></td></tr></table></figure>
-
-<p>即可运行pycharm</p>
-<h2 id="wsl图形化桌面"><a href="#wsl图形化桌面" class="headerlink" title="wsl图形化桌面"></a>wsl图形化桌面</h2><p>其实这也是windows下的一个窗口，如果需要可以装一下(上文是针对某个应用软件需要图形化界面时的配置)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y xfce4</span><br><span class="line">sudo apt install xfce4-session <span class="comment">#忘了有没有这句了</span></span><br><span class="line">xfce4-session</span><br></pre></td></tr></table></figure>
-
-<p>如此即可打开图形化桌面了</p>
-<p><img src="C:\Users\zhouyihe\AppData\Roaming\Typora\typora-user-images\image-20211014203633489.png" alt="image-20211014203633489"></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2021/10/17/wsl1+%E5%9B%BE%E5%83%8F%E5%8C%96%E7%95%8C%E9%9D%A2+pycharm/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/17/wsl1+%E5%9B%BE%E5%83%8F%E5%8C%96%E7%95%8C%E9%9D%A2+pycharm/" data-id="ckuuv49860001ncukfz93dgxu" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/10/17/wsl1+%E5%9B%BE%E5%83%8F%E5%8C%96%E7%95%8C%E9%9D%A2+pycharm/" data-id="ckuuv49860001ncukfz93dgxu" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -354,7 +343,7 @@
       <ul>
         
           <li>
-            <a href="/2021/10/17/wsl1+%E5%9B%BE%E5%83%8F%E5%8C%96%E7%95%8C%E9%9D%A2+pycharm/">(no title)</a>
+            <a href="/2021/10/17/wsl1+%E5%9B%BE%E5%83%8F%E5%8C%96%E7%95%8C%E9%9D%A2+pycharm/">Hello World</a>
           </li>
         
           <li>
