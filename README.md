@@ -9,7 +9,7 @@ A lightweight, responsive academic homepage. No framework, build step, analytics
 - `index.html`: biography, research interests, publications and links.
 - `assets/site.css`: layout, responsive styles and print presentation.
 - `assets/site.js`: progressively enhanced publication filters. All papers remain visible without JavaScript.
-- `assets/yihe-zhou.webp`: existing professional portrait from the Agent Lab people page.
+- `assets/yihe-zhou-teams.jpg`: Yihe Zhou’s Microsoft Teams profile photo, used at his request.
 
 For local preview, run `python3 -m http.server 8000` and open `http://localhost:8000`.
 
