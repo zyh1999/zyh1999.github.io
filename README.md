@@ -20,3 +20,5 @@ GitHub Pages serves the `main` branch from `/ (root)`; `.nojekyll` keeps the sit
 Publication titles and author lists come from linked papers and proceedings, with the applicant's Google Scholar records as a cross-check. NeurIPS 2026 status follows the paper's camera-ready arXiv record. Current research directions are described as interests; unpublished experiments are not presented as established results.
 
 The previous Hexo blog and its dated articles, archives, tags and theme assets were removed at the owner’s request. Earlier versions remain recoverable through Git history.
+
+The publication list was reconciled against all 14 Google Scholar entries on 20 November 2026, giving 12 distinct works after merging the CADP and RuscaRL preprint/conference duplicates. Entries are ordered by year and available publication dates. RuscaRL is verified as ICML 2026 regular on OpenReview; From GNNs to Trees is marked accepted at ICLR 2025 on arXiv. The EM survey is labelled as a manuscript because its Scholar record does not specify an accepted venue.
