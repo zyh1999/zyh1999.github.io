@@ -9,3 +9,5 @@
 .profile-links .profile-email{overflow-wrap:anywhere;min-width:0}
 
 .publication-order{font-size:.9rem;color:var(--muted);margin-top:.8rem}
+
+.contribution-note{font-size:.85rem;color:var(--muted);margin-top:.3rem}.authors sup{font-size:.75em;margin-left:.1em}
