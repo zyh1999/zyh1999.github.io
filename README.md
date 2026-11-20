@@ -2,13 +2,12 @@
 
 Public site: https://zyh1999.github.io/
 
-A lightweight, responsive academic homepage. No framework, build step, analytics, or external font service is required.
+A lightweight, responsive academic homepage. All work is shown in a single chronological list without category filters. No framework, build step, analytics, or external font service is required.
 
 ## Edit
 
 - `index.html`: biography, research interests, publications and links.
 - `assets/site.css`: layout, responsive styles and print presentation.
-- `assets/site.js`: progressively enhanced publication filters. All papers remain visible without JavaScript.
 - `assets/yihe-zhou-teams.jpg`: Yihe Zhou’s Microsoft Teams profile photo, used at his request.
 
 For local preview, run `python3 -m http.server 8000` and open `http://localhost:8000`.
